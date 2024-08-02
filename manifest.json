@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "locale": "English_United States.1252",
+  "metadata": {
+    "appmode": "python-streamlit",
+    "entrypoint": "app"
+  },
+  "python": {
+    "version": "3.12.2",
+    "package_manager": {
+      "name": "pip",
+      "version": "24.0",
+      "package_file": "requirements.txt"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "3bc842212716cc274a794b50b6cc6d05"
+    },
+    ".gitattributes": {
+      "checksum": "05bdb783ee6514c8c072e47680af8ff7"
+    },
+    ".gitignore": {
+      "checksum": "14c38ff8aca6c2ae6ce37213989b391e"
+    },
+    "README.md": {
+      "checksum": "5dec1e57bf7b7a63606152388df58eff"
+    },
+    "app.py": {
+      "checksum": "f2969522f9356612333dc9fae18cf3c6"
+    },
+    "data/2024-07-31_2018-2022 Prevalance Estimates.csv": {
+      "checksum": "a0fe9f1f6a9ddd58fb351f2c28d91ccc"
+    },
+    "data/2024-07-31_2018-2022 Prevalence Estimates - Dashboard.csv": {
+      "checksum": "3534279c00b490f3cbe1a0a5438c32eb"
+    },
+    "data/2024-07-31_2018-2022 Prevalence Estimates - Errors.csv": {
+      "checksum": "81051bcc2cf1bedf378224b0a93e2877"
+    },
+    "utils.py": {
+      "checksum": "c4cdd42708aba155f89c847a581e4fb8"
+    }
+  }
+}
