@@ -15,8 +15,26 @@ st.set_page_config(
     page_icon=':no_smoking:',
     layout='wide')
 
-df = utils.get_data()
-colors = px.colors.qualitative.Safe
+df = utils.get_data(r'data/2024-08-22_2018-2022 NTCP Prevalence Estimates - Dashboard.csv')
+# colors = px.colors.qualitative.Safe
+
+# Tol colors (12)
+# https://davidmathlogic.com/colorblind/
+colors = [
+  "rgb(51, 34, 136)",
+  "rgb(17, 119, 51)",
+  "rgb(182, 160, 111)",
+  "rgb(136, 204, 238)",
+  "rgb(204, 102, 119)",
+  "rgb(170, 68, 153)",
+  "rgb(136, 34, 85)",
+  "rgb(57, 183, 209)",
+  "rgb(68, 170, 153)",
+  "rgb(127, 36, 137)",
+  "rgb(95, 207, 40)",
+  "rgb(221, 204, 119)"
+]
+
 min_value = df['Year'].min()
 max_value = df['Year'].max()
 recipients = df['Recipient'].unique()

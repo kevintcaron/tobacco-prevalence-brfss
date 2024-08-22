@@ -2,16 +2,15 @@ import pandas as pd
 from pathlib import Path
 import streamlit as st
 
-@st.cache_data(ttl=3600)
-def get_data():
+# @st.cache_data(ttl=3600)
+def get_data(data_filename):
     """Grab GDP data from a CSV file.
 
     This uses caching to avoid having to read the file every time. If we were
     reading from an HTTP endpoint instead of a file, it's a good idea to set
     a maximum age to the cache with the TTL argument: @st.cache_data(ttl='1d')
     """
-    DATA_FILENAME = r'data/2024-07-31_2018-2022 Prevalence Estimates - Dashboard.csv'
-    df = pd.read_csv(DATA_FILENAME)
+    df = pd.read_csv(data_filename)
 
     return df
 

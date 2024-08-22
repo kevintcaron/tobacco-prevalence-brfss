@@ -31,14 +31,14 @@ def basic_widgets(df,from_year, to_year, recipients):
 def multiselect_widgets(df,from_year, to_year, recipients):
     selected_recipients = st.multiselect('Select geographic locations',
                                          options=recipients,
-                                         default=['United States'])
+                                         default=['United States (median)'])
 
     selected_tobs = st.multiselect('Select tobacco-use categories',
                                    options=['Smoking', 'Smokeless', 'Ecig', 'Any'],
                                    default=['Smoking'])
 
     selected_demo_names = st.multiselect('Select demographic groups',
-                                         options=df['Demographic_Name'].unique(),
+                                         options=df['Demographic'].unique(),
                                          default=['Total Population'])
 
     # Filter the data
@@ -46,7 +46,7 @@ def multiselect_widgets(df,from_year, to_year, recipients):
         (df['Recipient'].isin(selected_recipients))
         & (df['Year'] <= to_year)
         & (from_year <= df['Year'])
-        & (df['Demographic_Name'].isin(selected_demo_names))
+        & (df['Demographic'].isin(selected_demo_names))
         ]
 
     return selected_recipients, selected_tobs, selected_demo_names, filtered_df
@@ -59,7 +59,7 @@ def multiselect_plot(selected_recipients, selected_tobs, selected_demo_names, fi
         graph_df = filtered_df[filtered_df['Recipient'] == recipient]
         for selected_tob in selected_tobs:
             for selected_demo_name in selected_demo_names:
-                graph_df2 = graph_df[graph_df['Demographic_Name'] == selected_demo_name]
+                graph_df2 = graph_df[graph_df['Demographic'] == selected_demo_name]
                 label_style = utils.get_figure_labels(selected_recipients, recipient, selected_tobs,
                                                       selected_tob, selected_demo_names, selected_demo_name)
                 fig.add_trace(go.Scatter(
@@ -94,7 +94,7 @@ def multiselect_plot(selected_recipients, selected_tobs, selected_demo_names, fi
         },
         xaxis_title='Year',
         yaxis_title='Prevalence',
-        height=500,
+        # height=500,
         # width=800,
         xaxis=dict(
             tickvals=tickvals,
@@ -110,8 +110,8 @@ def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df
     fig = go.Figure()
 
     i = 0
-    for demo_name in filtered_df['Demographic_Name'].unique():
-        df_demo = filtered_df[filtered_df['Demographic_Name'] == demo_name]
+    for demo_name in filtered_df['Demographic'].unique():
+        df_demo = filtered_df[filtered_df['Demographic'] == demo_name]
 
         fig.add_trace(go.Scatter(
             x=df_demo['Year'],
@@ -145,7 +145,7 @@ def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df
         },
         xaxis_title='Year',
         yaxis_title='Prevalence',
-        height=500,
+        # height=500,
         # width=800,
         xaxis=dict(
             tickvals=tickvals,
@@ -154,15 +154,5 @@ def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df
         ),
         yaxis=dict(rangemode='tozero')
     )
-
-    # # Add title and axis labels
-    # fig.update_layout(
-    #     title=f'                {selected_demo_name} {selected_tob} Prevalence',
-    #     xaxis_title='Year',
-    #     yaxis_title='Prevalence',
-    #     height=500,
-    #     xaxis=dict(tickvals=tickvals, ticktext=ticktext, tickformat='.0f'),
-    #     yaxis=dict(rangemode='tozero')
-    # )
 
     return fig
