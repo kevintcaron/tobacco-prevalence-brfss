@@ -10,7 +10,7 @@ def basic_widgets(df,from_year, to_year, recipients):
                                       index=0)
 
     selected_tob = st.selectbox('Select tobacco-use categories',
-                                options=['Smoking', 'Smokeless', 'Ecig', 'Any'],
+                                options=['Current Cigarette', 'Current Smokeless', 'Current E-cigarette', 'Current Any Tobacco Product'],
                                 index=0)
 
     selected_demo_name = st.selectbox('Select demographic group',
@@ -34,8 +34,8 @@ def multiselect_widgets(df,from_year, to_year, recipients):
                                          default=['United States (median)'])
 
     selected_tobs = st.multiselect('Select tobacco-use categories',
-                                   options=['Smoking', 'Smokeless', 'Ecig', 'Any'],
-                                   default=['Smoking'])
+                                   options=['Current Cigarette', 'Current Smokeless', 'Current E-cigarette', 'Current Any Tobacco Product'],
+                                   default=['Current Cigarette'])
 
     selected_demo_names = st.multiselect('Select demographic groups',
                                          options=df['Demographic'].unique(),

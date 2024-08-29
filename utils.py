@@ -43,13 +43,13 @@ def get_figure_labels(selected_recipients,
 
 def get_figure_title(selected_tobs):
     if len(selected_tobs) == 1:
-        return f'{selected_tobs[0]} Tobacco Use Prevalence'
+        return f'{selected_tobs[0]} Use Prevalence'
     elif len(selected_tobs) == 2:
-        return f'{selected_tobs[0]} and {selected_tobs[1]} Tobacco Use Prevalence'
+        return f'{selected_tobs[0]} and {selected_tobs[1]} Use Prevalence'
     elif len(selected_tobs) == 3:
-        return f'{selected_tobs[0]}, {selected_tobs[1]}, and {selected_tobs[2]} Tobacco Use Prevalence'
+        return f'{selected_tobs[0]}, {selected_tobs[1]}, and {selected_tobs[2]} Use Prevalence'
     elif len(selected_tobs) == 4:
-        return f'{selected_tobs[0]}, {selected_tobs[1]}, {selected_tobs[2]}, and {selected_tobs[3]} Tobacco Use Prevalence'
+        return f'{selected_tobs[0]}, {selected_tobs[1]}, {selected_tobs[2]}, and {selected_tobs[3]} Use Prevalence'
     else:
         return 'Something Broke'
 
