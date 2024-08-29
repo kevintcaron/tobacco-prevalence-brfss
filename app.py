@@ -1,9 +1,4 @@
 import streamlit as st
-import pandas as pd
-import math
-from pathlib import Path
-import plotly.express as px
-import plotly.graph_objects as go
 
 import utils
 import components
@@ -61,12 +56,11 @@ with colA:
         selected_recipients, selected_tobs, selected_demo_names, filtered_df = components.multiselect_widgets(df, from_year, to_year, recipients)
     else:
         selected_recipient, selected_tob, selected_demo_name, filtered_df = components.basic_widgets(df, from_year, to_year, recipients)
-
-
 with colB:
     if multiselect_on:
-        fig = components.multiselect_plot(selected_recipients, selected_tobs, selected_demo_names, filtered_df, colors, from_year, to_year)
+        fig, name = components.multiselect_plot(selected_recipients, selected_tobs, selected_demo_names, filtered_df, colors, from_year, to_year)
     else:
-        fig = components.basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df, colors, from_year, to_year)
+        fig, name = components.basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df, colors, from_year, to_year)
 
     st.plotly_chart(fig)
+

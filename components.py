@@ -92,19 +92,45 @@ def multiselect_plot(selected_recipients, selected_tobs, selected_demo_names, fi
             'xanchor': 'left',
             'yanchor': 'top'
         },
-        xaxis_title='Year',
-        yaxis_title='Prevalence',
+        xaxis_title={
+            'text': 'Year',
+            'font': {'color': '#444444',
+                     'size': 16},
+        },
+        yaxis_title={
+            'text': 'Prevalence',
+            'font': {'color': '#444444',
+                     'size': 16},
+        },
         # height=500,
         # width=800,
         xaxis=dict(
             tickvals=tickvals,
             ticktext=ticktext,
-            tickformat='.0f'
+            tickformat='.0f',
+            tickfont=dict(
+                color='#444444',
+                size=14)
         ),
-        yaxis=dict(rangemode='tozero')
+        yaxis=dict(
+            rangemode='tozero',
+            tickfont=dict(
+                color='#444444',
+                size=14)
+        )
     )
 
-    return fig
+    fig.update_layout(
+        legend={
+            "font": {
+                "family": "verdana",
+                "size": 12,
+            }}
+    )
+
+    name = f'{title_info} — BRFSS {from_year} to {to_year}: {subtitle_info}'
+
+    return fig, name
 
 def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df, colors, from_year, to_year):
     fig = go.Figure()
@@ -143,16 +169,42 @@ def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df
             'xanchor': 'left',
             'yanchor': 'top'
         },
-        xaxis_title='Year',
-        yaxis_title='Prevalence',
+        xaxis_title={
+            'text': 'Year',
+            'font': {'color': '#444444',
+                     'size': 16},
+        },
+        yaxis_title={
+            'text': 'Prevalence',
+            'font': {'color': '#444444',
+                     'size': 16},
+        },
         # height=500,
         # width=800,
         xaxis=dict(
             tickvals=tickvals,
             ticktext=ticktext,
-            tickformat='.0f'
+            tickformat='.0f',
+            tickfont=dict(
+                color='#444444',
+                size=14)
         ),
-        yaxis=dict(rangemode='tozero')
+        yaxis=dict(
+            rangemode='tozero',
+            tickfont=dict(
+                color='#444444',
+                size=14)
+        )
     )
 
-    return fig
+    fig.update_layout(
+        legend={
+            "font": {
+                "family": "verdana",
+                "size": 12,
+            }}
+    )
+
+    name = f'{title_info} — BRFSS {from_year} to {to_year}: {subtitle_info}'
+
+    return fig, name
