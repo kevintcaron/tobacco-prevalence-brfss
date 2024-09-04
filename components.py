@@ -202,8 +202,19 @@ def basic_plot(selected_recipient, selected_tob, selected_demo_name, filtered_df
             "font": {
                 "family": "verdana",
                 "size": 12,
+                "color": '#444444'
             }}
     )
+
+    # fig.update_layout(
+    #     legend=dict(
+    #         yanchor="top",
+    #         y=0.99,
+    #         xanchor='right',
+    #         x=0.99,
+    #         bgcolor='rgba(255,255,255,0.5)'
+    #     )
+    # )
 
     name = f'{title_info} — BRFSS {from_year} to {to_year}: {subtitle_info}'
 
