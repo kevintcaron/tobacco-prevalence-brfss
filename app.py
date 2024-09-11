@@ -10,7 +10,7 @@ st.set_page_config(
     page_icon=':no_smoking:',
     layout='wide')
 
-df = utils.get_data(r'data/2024-08-22_2018-2022 NTCP Prevalence Estimates - Dashboard.csv')
+df = utils.get_data(r'data/2024-09-11_2018-2023 NTCP Prevalence Estimates - Dashboard.csv')
 # colors = px.colors.qualitative.Safe
 
 # Tol colors (12)
