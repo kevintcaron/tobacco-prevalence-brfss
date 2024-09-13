@@ -43,7 +43,10 @@ def get_figure_labels(selected_recipients,
 
 def get_figure_title(selected_tobs):
     if len(selected_tobs) == 1:
-        return f'{selected_tobs[0]} Use Prevalence'
+        if selected_tobs[0] == 'Past-Year Quit Attempt':
+            return f'{selected_tobs[0]} Prevalence Among Current Cigarette Users'
+        else:
+            return f'{selected_tobs[0]} Use Prevalence'
     elif len(selected_tobs) == 2:
         return f'{selected_tobs[0]} and {selected_tobs[1]} Use Prevalence'
     elif len(selected_tobs) == 3:

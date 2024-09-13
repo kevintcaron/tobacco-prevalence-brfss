@@ -9,8 +9,12 @@ def basic_widgets(df,from_year, to_year, recipients):
                                       options=recipients,
                                       index=0)
 
-    selected_tob = st.selectbox('Select tobacco-use categories',
-                                options=['Current Cigarette', 'Current Smokeless', 'Current E-cigarette', 'Current Any Tobacco Product'],
+    selected_tob = st.selectbox('Select tobacco indicator',
+                                options=['Current Cigarette',
+                                         'Current Smokeless',
+                                         'Current E-cigarette',
+                                         'Current Any Tobacco Product',
+                                         'Past-Year Quit Attempt'],
                                 index=0)
 
     selected_demo_name = st.selectbox('Select demographic group',
