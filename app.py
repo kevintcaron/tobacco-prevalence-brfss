@@ -6,7 +6,7 @@ import components
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
-    page_title='Tobacco Use-Prevalence Dashboard',
+    page_title='NTCP Outcome Indicators',
     page_icon=':no_smoking:',
     layout='wide')
 
@@ -35,7 +35,7 @@ max_value = df['Year'].max()
 recipients = df['Recipient'].unique()
 
 st.markdown('''
-# NTCP Evaluation Outcomes Dashboard
+# NTCP Outcome Indicators Explorer
 This tool was created to support the evaluation of the National Tobacco Control Program (NTCP). Health scientists are 
 encouraged to use the interactive widgets below to browse tobacco use-prevalence and quit attempts data from the [Behavioral Risk Factor Surveillance 
 System](https://www.cdc.gov/brfss/index.html). 
